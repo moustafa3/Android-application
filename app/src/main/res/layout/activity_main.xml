@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/background_light"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp">
+
+        <!-- App Title -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="32dp">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_location"
+                android:layout_marginEnd="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Emergency Location Sender"
+                style="@style/TitleText" />
+
+        </LinearLayout>
+
+        <!-- Location Card -->
+        <LinearLayout
+            style="@style/CardStyle"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_location"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Location Services"
+                    style="@style/SectionTitleText" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvLocationStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Location: Not available"
+                style="@style/StatusText"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvLocationDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                style="@style/BodyText"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/btnGetLocation"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="🗺️ Get Current Location"
+                android:layout_marginHorizontal="0dp"
+                style="@style/PrimaryButton" />
+
+        </LinearLayout>
+
+        <!-- SMS Section Card -->
+        <LinearLayout
+            style="@style/CardStyle"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_sms"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Send Location via SMS"
+                    style="@style/SectionTitleText" />
+
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/InputField"
+                android:layout_marginHorizontal="0dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPhoneNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter phone number "
+                    android:inputType="phone"
+                    android:textColor="@color/black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnSendSMS"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="📱 Send Location SMS"
+                android:layout_marginHorizontal="0dp"
+                android:enabled="false"
+                style="@style/SuccessButton" />
+
+        </LinearLayout>
+
+        <!-- SMS Auto-Response Card -->
+        <LinearLayout
+            style="@style/CardStyle"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_sms"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="SMS Auto-Response"
+                    style="@style/SectionTitleText" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Automatically send your location when someone texts you phrases like 'give me your location', 'where are you', etc."
+                style="@style/BodyText"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/tvAutoResponseStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SMS Auto-Response: OFF"
+                style="@style/StatusText"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tvAutoResponseInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                style="@style/BodyText"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/btnToggleAutoResponse"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="💬 Enable SMS Auto-Response"
+                android:layout_marginHorizontal="0dp"
+                style="@style/SuccessButton" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
